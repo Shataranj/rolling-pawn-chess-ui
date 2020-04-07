@@ -3,18 +3,20 @@ var game;
 var socket = io();
 
 
-window.onload = function () {initGame();};
-var initGame = function() {
+// window.onload = function () {initGame();};
+var initGame = function(fen) {
    var cfg = {
        draggable: true,
-       position: 'start',
+       position: fen,
        onDrop: handleMove,
    };
    board = new ChessBoard('gameBoard', cfg);
-   game = new Chess();
+   game = new Chess(fen);
+   console.log("board created")
 };
 
 var handleMove = function(source, target ) {
+    console.log(source, target)
     var move = game.move({from: source, to: target});
     console.log(move);
     if (move === null)  return 'snapback';
