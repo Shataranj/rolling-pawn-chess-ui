@@ -1,5 +1,5 @@
 const showTable = function (game) {
-  const gamesElement = document.querySelector("#games");
+  const gamesElement = document.querySelector("#games tbody");
 
   const boardIDElem = `<td>${game.boardId}</td>`;
   const gameIDElem = `<td>${game.gameId}</td>`;
@@ -24,6 +24,7 @@ const getOnlineGames = function () {
   fetch("https://rolling-pawn.herokuapp.com/games/in_progress")
     .then((res) => res.json())
     .then((games) => games.map(showTable));
+    
 };
 
 window.onload = getOnlineGames;

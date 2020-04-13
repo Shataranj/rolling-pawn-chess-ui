@@ -12,8 +12,6 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="lib/chessboard-0.3.0.min.css">
     <link rel="stylesheet" href="/default.css" />
@@ -22,19 +20,25 @@
   <body>
     <div id='gameBoard'></div>
     <div id="active-games">
-
-      <table id="games" class="table">
-        <thead class="thead-dark">
+      <br>
+      <h1><img class ="logo" src="images/logo.png" alt=""></h1>
+      <h1><span class="blue"></span>SHOWING<span class="blue"></span> <span class="yellow">ALL GAMES</pan></h1>
+      <br>
+      <table id="games" class="container">
+        <thead>
           <tr>
-            <th>Rolling Pawn Board ID</th>
+            <th>Chess Board ID</th>
             <th>Game ID</th>
             <th>Opponent</th>
-            <th>Status</th>
+            <th class="status">Status</th>
           </tr>
         </thead>
+        <tbody>
+
+        </tbody>
       </table>      
 
-      
+
     </div>
   </body>
 </html>
