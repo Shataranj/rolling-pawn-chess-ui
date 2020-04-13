@@ -30,12 +30,15 @@ app.post("/move", urlencodedParser, function (req, res) {
   };
   console.log(response);
   io.emit("move", response);
-
   res.end(JSON.stringify(response));
 });
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/login", function (req, res) {
+  res.sendFile(__dirname + "/public/portal-login.html");
 });
 
 app.get("/games/in_progress", async (req, res) => {
