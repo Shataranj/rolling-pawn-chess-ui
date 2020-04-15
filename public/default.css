@@ -8,16 +8,18 @@
    font-weight: 300;
    line-height: 1.42em;
    color:#A7A1AE;
-   background: #141515;
+   /* background: #141515; */
+   background-image: url("../homepage/images/bg.jpg");
+   background-size: 100%;
    
  }
  
  h1 {
-   font-size:3em; 
+   font-size:2em; 
    font-weight: 300;
    line-height:1em;
    text-align: center;
-   color: #4DC3FA;
+   color: rgb(254, 255, 255);
  }
  
  h2 {
@@ -47,7 +49,7 @@
      color: #185875;
  }
  
- .container td {
+ .contain er td {
      font-weight: normal;
      font-size: 1em;
    -webkit-box-shadow: 0 2px 2px -2px #0E1119;

@@ -434,8 +434,8 @@ input, select, textarea {
 		select:focus,
 		textarea:focus {
 			background: rgba(255, 255, 255, 0.075);
-			border-color: #ffffff;
-			box-shadow: 0 0 0 1px #ffffff;
+			/* border-color: #ffffff; */
+			box-shadow: 0 0 0 0px #272727;
 		}
 
 	select {
@@ -1330,6 +1330,7 @@ input, select, textarea {
 				padding: 3rem 2rem;
 				max-height: 40rem;
 				overflow: hidden;
+				color: white;
 			}
 
 				#header .content .inner > :last-child {
@@ -1374,6 +1375,7 @@ input, select, textarea {
 					letter-spacing: 0.2rem;
 					font-size: 0.8rem;
 					border-bottom: 0;
+					color: #ffffff;
 				}
 
 					#header nav ul li a:hover {
@@ -1641,6 +1643,7 @@ input, select, textarea {
 		width: 100%;
 		max-width: 100%;
 		text-align: center;
+		
 	}
 
 		#footer .copyright {
@@ -1649,6 +1652,7 @@ input, select, textarea {
 			opacity: 0.75;
 			margin-bottom: 0;
 			text-transform: uppercase;
+			color: white;
 		}
 
 		body.is-article-visible #footer {
@@ -1675,5 +1679,10 @@ input, select, textarea {
 
 		.chess-icon{
 			width: 85%;
-			transform: translateY(7%);
+			transform: translateY(-2%);
+		}
+		.h1, h1 {
+			font-size: 2.25rem !important;
+			line-height: 1.3 !important;
+			letter-spacing: 0.5rem !important;
 		}
