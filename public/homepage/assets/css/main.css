@@ -1640,7 +1640,6 @@ input, select, textarea {
 		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
 		width: 100%;
 		max-width: 100%;
-		margin-top: 2rem;
 		text-align: center;
 	}
 
@@ -1671,6 +1670,7 @@ input, select, textarea {
 		.landing-logo {
 			width: 15%;
 			vertical-align: middle;
+			margin-bottom: -52px;
 		}
 
 		.chess-icon{
