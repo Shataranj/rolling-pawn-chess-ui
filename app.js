@@ -9,7 +9,6 @@ const DatabaseHelper = require("./mongo_helper");
 const MongoClient = require("mongodb").MongoClient;
 
 const bodyParser = require("body-parser");
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
@@ -21,8 +20,10 @@ const databaseHelper = new DatabaseHelper(MongoClient, DB_URL);
 app.use(cors());
 app.use(express.static("public"));
 app.use(logger("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
-app.post("/move", urlencodedParser, function (req, res) {
+app.post("/move", function (req, res) {
   // {color: "w", from: "d2", to: "d4", flags: "b", piece: "p", …}
   response = {
     from: req.body.from,
@@ -52,7 +53,8 @@ app.get("/game", async (req, res) => {
   const { gameId } = url.parse(req.url, true).query;
   console.log(gameId);
   const gameDetails = (await databaseHelper.find("chess_game", { _id: gameId }))[0];
-  res.send(gameDetails);
+  res.setHeader("Set-Cookie", `fen=${gameDetails.currentFen}`);
+  res.sendFile(__dirname + "/public/gameplay.html");
 });
 
 http.listen(PORT, async function () {
