@@ -29,6 +29,7 @@ const initGame = function () {
     onDrop: handleMove,
   };
   board = new ChessBoard("gameBoard", cfg);
+  $(window).resize(board.resize)
   game = new Chess(fen);
   console.log("board created");
 };

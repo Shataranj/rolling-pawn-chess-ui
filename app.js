@@ -24,7 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 app.post("/move", function (req, res) {
-  // {color: "w", from: "d2", to: "d4", flags: "b", piece: "p", …}
   response = {
     from: req.body.from,
     to: req.body.to,
