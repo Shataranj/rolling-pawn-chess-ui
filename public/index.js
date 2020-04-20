@@ -11,11 +11,11 @@ const showTable = function (game) {
 const fetchGame = function () {
   const gameId = event.target.id;
   console.log(`Game ID: ${gameId}`);
-  window.location = `https://rolling-pawn.herokuapp.com/game?gameId=${gameId}`
+  window.location = window.location.origin + `/game?gameId=${gameId}`
 };
 
 const getOnlineGames = function () {
-  fetch("https://rolling-pawn.herokuapp.com/games/in_progress")
+  fetch(window.location.origin + "/games/in_progress")
     .then((res) => res.json())
     .then((games) => games.map(showTable));
     
