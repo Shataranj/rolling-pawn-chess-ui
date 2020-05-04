@@ -1,6 +1,7 @@
 let board;
 let game;
-let socket = io.connect('http://0.0.0.0:5000');
+const API_ENDPOINT = process.env.API_ENDPOINT || 'http://0.0.0.0:5000'
+let socket = io.connect(API_ENDPOINT);
 
 const getCookie = function(name) {
     // Split cookie string and get all individual name=value pairs in an array
