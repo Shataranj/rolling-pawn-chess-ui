@@ -1,7 +1,6 @@
 let board;
 let game;
-const API_ENDPOINT = process.env.API_ENDPOINT || 'http://0.0.0.0:5000'
-let socket = io.connect(API_ENDPOINT);
+let socket = io.connect("https://rolling-pawn-chess.herokuapp.com/");
 
 const getCookie = function(name) {
     // Split cookie string and get all individual name=value pairs in an array
