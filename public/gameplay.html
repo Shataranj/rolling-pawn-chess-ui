@@ -3,21 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
   <script src="lib/socket.io-1.2.0.js"></script>
-  <script src="default.js"></script>
-  
   <script src="lib/chess.min.js"></script> 
   <script src="lib/chessboard-0.3.0.min.js"></script> 
   <script src="lib/jquery-1.11.1.js"></script>
+  <script src="default.js"></script>
   <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
   <link rel="stylesheet" href="lib/chessboard-0.3.0.min.css">
   <link rel="stylesheet" type="text/css" href="chessboard.css">
+  <link rel="stylesheet" href="css/button.css" />
   <title>Gameplay</title>
 </head>
 <body>
-  <div id="gameBoard" class="chessboard"></div>
+  <br>
+  <br>
+  <br>
+  <div class="wrapper">
+    <h1>SHOWING ALL GAMES</h1>
+    <div id="gameBoard" class="chessboard"></div>
+    <div class="action-buttons">
+      <button class="glow-on-hover">Take Over</button>
+      <button class="glow-on-hover">Analyse</button>  
+    </div>
+  </div>
 </body>
 </html>

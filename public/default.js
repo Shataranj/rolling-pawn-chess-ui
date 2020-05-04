@@ -1,6 +1,6 @@
 let board;
 let game;
-let socket = io();
+let socket = io.connect('http://0.0.0.0:5000');
 
 const getCookie = function(name) {
     // Split cookie string and get all individual name=value pairs in an array
@@ -43,7 +43,8 @@ const handleMove = function (source, target) {
 };
 
 socket.on("move", function (msg) {
-  game.move(msg);
+  let newMove = {from: msg.engine_move.from, to: msg.engine_move.to}
+  game.move(newMove);
   board.position(game.fen());
 });
 

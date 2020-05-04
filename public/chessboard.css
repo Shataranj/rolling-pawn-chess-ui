@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
 
 .chessboard {
     max-width: 100%;
@@ -17,7 +19,8 @@
 .square-b4,.square-d4,.square-f4,.square-h4,
 .square-b6,.square-d6,.square-f6,.square-h6,
 .square-b8,.square-d8,.square-f8,.square-h8 {
-    background-color:#54a0ef;
+    background-color:#a03e88;
+    
 }
 
 .square-a2,.square-c2,.square-e2,.square-g2,
@@ -30,3 +33,57 @@
 .square-b7,.square-d7,.square-f7,.square-h7 {
     background-color: white;
 }
+
+body {
+    font-weight: 300;
+    line-height: 1.42em;
+    color:#A7A1AE;
+    background-image: url("../homepage/images/bg.jpg");
+    background-size: 100%;
+}
+
+h1 {
+    font-size:2.5em; 
+    font-weight: 300;
+    line-height:1em;
+    text-align: center;
+    color: rgb(254, 255, 255);
+  }
+  
+h2 {
+font-size:1em; 
+font-weight: 300;
+text-align: center;
+display: block;
+line-height:1em;
+padding-bottom: 2em;
+color: #FB667A;
+}
+
+.action-buttons {
+    padding: 10px 24px; /* Some padding */
+    float: left; /* Float the buttons side by side */
+    transform: translate(-50%, -50%);
+    position: relative;
+    left: 50%;
+    margin-top: 680px;
+}
+
+@media (max-width: 760px) {
+    h1 {
+        font-size: 2em;
+    }
+    .chessboard {
+        top: 54%
+    }
+    
+    .action-buttons {
+        margin-top: 125%;
+        padding: 10px 24px;
+        transform: translate(-50%, -50%);
+        position: relative;
+        left: 50%;
+    }
+
+}
+  
