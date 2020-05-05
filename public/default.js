@@ -45,10 +45,16 @@ const handleMove = function (source, target) {
 
 window.onload = function () {
   fetch('/config').then(res => res.json()).then(({ apiURL }) => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const currentGameID = urlParams.get('gameId')
+
     socket = io.connect(apiURL);
     socket.on("move", function (msg) {
-      game.move(msg);
-      board.position(game.fen());
+      if (msg.game_id == currentGameID) {
+        game.move(msg);
+        board.position(game.fen());
+      }
     });
     initGame();
   })
