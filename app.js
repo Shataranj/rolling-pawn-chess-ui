@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 const DB_TABLE = process.env.DB_TABLE;
 const DB_NAME = process.env.DB_NAME;
+const API_ENDPOINT = process.env.API_ENDPOINT || 'http://0.0.0.0:5000';
 
 const databaseHelper = new DatabaseHelper(MongoClient, DB_URL);
 
@@ -43,6 +44,10 @@ app.get("/game", async (req, res) => {
   res.setHeader("Set-Cookie", `fen=${gameDetails.currentFen}`);
   res.sendFile(__dirname + "/public/gameplay.html");
 });
+
+app.get('/config', (req, res) => {
+  res.send({ apiURL: API_ENDPOINT });
+})
 
 http.listen(PORT, async function () {
   await databaseHelper.connect(DB_NAME);

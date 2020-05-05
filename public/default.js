@@ -1,6 +1,6 @@
 let board;
 let game;
-let socket = io.connect("https://rolling-pawn-chess.herokuapp.com/");
+let socket;
 
 const getCookie = function(name) {
     // Split cookie string and get all individual name=value pairs in an array
@@ -42,12 +42,14 @@ const handleMove = function (source, target) {
   else socket.emit("move", move);
 };
 
-socket.on("move", function (msg) {
-  let newMove = {from: msg.engine_move.from, to: msg.engine_move.to}
-  game.move(newMove);
-  board.position(game.fen());
-});
 
 window.onload = function () {
-  initGame();
+  fetch('/config').then(res => res.json()).then(({ apiURL }) => {
+    socket = io.connect(apiURL);
+    socket.on("move", function (msg) {
+      game.move(msg);
+      board.position(game.fen());
+    });
+    initGame();
+  })
 };
