@@ -31,6 +31,14 @@ app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/portal-login.html");
 });
 
+app.get("/signup", function (req, res) {
+  res.sendFile(__dirname + "/public/portal-signup.html");
+});
+
+app.get("/home", function (req, res) {
+  res.sendFile(__dirname + "/public/home.html");
+});
+
 app.get("/games/in_progress", async (req, res) => {
   const IPGames = await databaseHelper.find(DB_TABLE, {
     gameStatus: "In Progress",

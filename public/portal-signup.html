@@ -35,7 +35,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						
+
 					</span>
 					<span class="login100-form-title p-b-48">
 						<!-- <i class="zmdi zmdi-font"></i> -->
@@ -43,7 +43,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="email" id="login">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -51,28 +51,32 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="pass" id="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="conf-pass" id="confirm_password">
+						<span class="focus-input100" data-placeholder="Confirm Password"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="board_id" id="board_id">
+						<span class="focus-input100" data-placeholder="Your Board ID"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<!-- <div class="wrap-login100-form-btn"> -->
 							<!-- <div class="login100-form-bgbtn"></div> -->
 							<button class="glow-on-hover">
-								Login
+								Sign Up
 							</button>
 						<!-- </div> -->
 					</div>
 
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="/signup">
-							Sign Up
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>
