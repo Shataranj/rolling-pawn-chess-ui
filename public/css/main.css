@@ -43,11 +43,7 @@ body, html {
 }
 
 .limiter{
-  background-image: url("/public/images/background.jpg");
 
-  /* Add the blur effect */
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px); */
   backdrop-filter: blur(2px);
 
   /* Full height */
@@ -57,6 +53,7 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: red;
 }
 /*---------------------------------------------*/
 a {
@@ -191,13 +188,14 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #1c1818;  
+  background: #030303;  
 }
 
 .wrap-login100 {
   width: 390px;
   background: #13121238;
-  
+  background-image: url("../images/background_2.jpg");
+  background-size: auto;
   border-radius: 10px;
   overflow: hidden;
   padding: 77px 55px 33px 55px;
@@ -278,7 +276,9 @@ iframe {
   float: left;
   height: 150px;
   /* background-color: white; */
-  border: 3px solid #1a1717;
+  /* border-top:    1px solid rgb(88, 87, 87); */
+  /* border-right:  1px solid rgb(88, 87, 87);  */
+  /* border-bottom: 1px solid rgb(88, 87, 87); */
 
 }
 
@@ -332,8 +332,9 @@ iframe {
 }
 
 .glow-on-hover-action img{
-  display:block;
-  margin:auto;  
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 
@@ -623,6 +624,14 @@ iframe {
 .logo{
   width: 50%;
   height: 50%;
-  margin-top: -124px;
+  margin-top: -60px;
 }
 
+.action-image {
+  width: 60%;
+  margin: 0;
+  position: inherit;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
