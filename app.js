@@ -39,13 +39,6 @@ app.get("/home", function (req, res) {
   res.sendFile(__dirname + "/public/home.html");
 });
 
-app.get("/games/in_progress", async (req, res) => {
-  const IPGames = await databaseHelper.find(DB_TABLE, {
-    gameStatus: "In Progress",
-  });
-  res.send(IPGames);
-});
-
 app.get("/game", async (req, res) => {
   const { gameId } = url.parse(req.url, true).query;
   const gameDetails = (await databaseHelper.find("chess_game", { _id: gameId }))[0];
