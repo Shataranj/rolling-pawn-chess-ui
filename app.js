@@ -46,6 +46,10 @@ app.get("/game", async (req, res) => {
   res.sendFile(__dirname + "/public/gameplay.html");
 });
 
+app.get("/my-games", async (req, res) => {
+  res.sendFile(__dirname + "/public/my-games.html");
+});
+
 app.get('/config', (req, res) => {
   res.send({ apiURL: API_ENDPOINT });
 })

@@ -14,10 +14,12 @@ const fetchGame = function () {
   window.location = window.location.origin + `/game?gameId=${gameId}`
 };
 
-window.onload = function () {
+const fetchGames = function () {
   fetch('/config').then(res => res.json()).then(({ apiURL }) => {
     fetch(apiURL + "/get_all_games?status=In Progress")
-      .then((res) => res.json())
-    .then((games) => games.map(showTable));
+        .then((res) => res.json())
+        .then((games) => games.map(showTable));
   });
-};
+}
+
+window.onload = fetchGames ;
