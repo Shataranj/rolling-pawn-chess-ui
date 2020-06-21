@@ -33,7 +33,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<div class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
 
 					</span>
@@ -43,8 +43,13 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email" id="login">
+						<input class="input100" type="text" name="email" id="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter user name">
+						<input class="input100" type="text" name="user-id" id="user-id">
+						<span class="focus-input100" data-placeholder="User Name"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -64,20 +69,20 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="board_id" id="board_id">
+						<input class="input100" type="text" name="board_id" id="board-id">
 						<span class="focus-input100" data-placeholder="Your Board ID"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<!-- <div class="wrap-login100-form-btn"> -->
 							<!-- <div class="login100-form-bgbtn"></div> -->
-							<button class="glow-on-hover">
+							<button id= "sign-up-button" class="glow-on-hover">
 								Sign Up
 							</button>
 						<!-- </div> -->
 					</div>
 
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -101,6 +106,7 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="lib/main.js"></script>
+	<script src="signup.js"></script>
 
 </body>
 </html>
