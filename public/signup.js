@@ -18,6 +18,8 @@
                     })
                 }))
             .then(res => res.json())
-            .then(() => window.location.href = window.location.origin + "/home");
+            .then(({token}) =>{
+                window.localStorage.setItem("token", token);
+                return window.location.href = window.location.origin + "/home"});
     })
 })(jQuery);
