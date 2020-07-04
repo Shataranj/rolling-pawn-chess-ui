@@ -35,13 +35,21 @@ const initGame = function () {
 };
 
 const handleMove = function (source, target) {
-  console.log(source, target);
-  let move = game.move({ from: source, to: target });
-  console.log(move);
-  if (move === null) return "snapback";
-  else socket.emit("move", move);
-};
-
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const gameId = urlParams.get('gameId');
+    const move = {from: source, to: target, game_id: gameId};
+    fetch('/config').then(res => res.json())
+        .then(({apiURL}) =>
+            fetch(apiURL + "/move", {
+                method: "post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(move)
+            }))
+}
 
 window.onload = function () {
   fetch('/config').then(res => res.json()).then(({ apiURL }) => {
