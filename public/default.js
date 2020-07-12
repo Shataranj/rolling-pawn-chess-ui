@@ -2,36 +2,34 @@ let board;
 let game;
 let socket;
 
-const getCookie = function(name) {
-    const cookieArr = document.cookie.split(";");
-    
-    for(let i = 0; i < cookieArr.length; i++) {
-        let cookiePair = cookieArr[i].split("=");
-        if(name == cookiePair[0].trim()) {
-            return decodeURIComponent(cookiePair[1]);
-        }
-    }
-    return null;
-}
-
 const initGame = function () {
-  const fen = getCookie("fen")
-  const cfg = {
-    draggable: true,
-    position: fen,
-    onDrop: handleMove,
-  };
-  board = new ChessBoard("gameBoard", cfg);
-  $(window).resize(board.resize)
-  game = new Chess(fen);
-  console.log("board created");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const gameId = urlParams.get('gameId')
+    fetch('/config')
+        .then(res => res.json())
+        .then(({apiURL}) =>
+            fetch(apiURL + `/game?gameId=${gameId}`))
+        .then(res => res.json())
+        .then(({fen}) => {
+            game = new Chess(fen)
+            const cfg = {
+                draggable: true,
+                position: fen,
+                onDrop: handleMove,
+            };
+            board = new ChessBoard("gameBoard", cfg);
+            $(window).resize(board.resize)
+        });
 };
 
 const handleMove = function (source, target) {
+    if (source === target) return;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const gameId = urlParams.get('gameId');
     const move = {from: source, to: target, game_id: gameId};
+
     fetch('/config').then(res => res.json())
         .then(({apiURL}) =>
             fetch(apiURL + "/move", {
@@ -51,9 +49,8 @@ const setupGame = function() {
 
         socket = io.connect(apiURL);
         socket.on("move", function (msg) {
-            if (msg.game_id == currentGameID) {
-                game.move(msg);
-                board.position(game.fen());
+            if (msg.game_id === currentGameID) {
+                board.position(msg.fen);
             }
         });
         initGame();
